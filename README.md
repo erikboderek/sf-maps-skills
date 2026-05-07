@@ -18,6 +18,8 @@ All skills use the **`sf-maps-*`** prefix so IDs stay distinct from upstream `sf
 | [sf-maps-setup](skills/sf-maps-setup/) | Installation prerequisites, permission sets, org configuration, and geocoding setup. |
 | [sf-maps-territory](skills/sf-maps-territory/) | Territory management, ATM (Advanced Territory Management), coverage rules, and assignment logic. |
 | [sf-maps-field](skills/sf-maps-field/) | Field sales workflows — routing, markers, data layers, visit planning, and mobile usage. |
+| [sf-maps-custom-actions](skills/sf-maps-custom-actions/) | Map It buttons, Popup Flow actions, and multi-record custom actions in Salesforce Maps. |
+| [sf-maps-arcgis](skills/sf-maps-arcgis/) | ArcGIS Living Atlas layer consumption and ArcGIS Connectors / Batch Push to ArcGIS Online or Enterprise. |
 
 Each folder contains a `SKILL.md` plus optional `references/` (see [sf-maps-field/references/](skills/sf-maps-field/references/)).
 
@@ -31,6 +33,7 @@ When **`docs/`** is published alongside this pack, open these paths at the **rep
 |------|---------|
 | `docs/adr-maps.md` | Maps ADR covering data model decisions, ATM vs. standard territories, and geocoding considerations. |
 | `docs/guide-agent-skills.md` | Layered install guide. |
+| `docs/sf-maps-legacy-patterns.md` | Legacy MapAnything patterns: Map It buttons (`sma` namespace), popup flows, mass actions, and data layer comparison. |
 
 ---
 
@@ -113,20 +116,28 @@ The Salesforce guide [Skills in Agentforce Vibes](https://developer.salesforce.c
 │   └── sf-maps-architect.md
 ├── docs/
 │   ├── adr-maps.md
-│   └── guide-agent-skills.md
+│   ├── guide-agent-skills.md
+│   └── sf-maps-legacy-patterns.md
 └── skills/
     ├── sf-maps-setup/
     │   ├── SKILL.md
     │   └── references/
-    │       └── sf-maps-objects-setup.md
+    │       ├── sf-maps-objects-setup.md
+    │       └── sf-maps-objects-maps-namespace.md
     ├── sf-maps-territory/
     │   ├── SKILL.md
     │   └── references/
     │       └── sf-maps-objects-territory.md
-    └── sf-maps-field/
-        ├── SKILL.md
-        └── references/
-            └── sf-maps-objects-field.md
+    ├── sf-maps-field/
+    │   ├── SKILL.md
+    │   └── references/
+    │       ├── sf-maps-data-layer-tooltips.md
+    │       ├── sf-maps-shape-layer-countries.md
+    │       └── sf-maps-reference-data.md
+    ├── sf-maps-custom-actions/
+    │   └── SKILL.md
+    └── sf-maps-arcgis/
+        └── SKILL.md
 ```
 
 ---

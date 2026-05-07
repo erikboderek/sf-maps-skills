@@ -1,3 +1,18 @@
+---
+name: sf-maps-territory
+version: 1.1.0
+license: MIT
+description: >
+  ACTIVATE for Salesforce Maps territory design, Advanced Territory Management (ATM),
+  coverage rules, reference data layers, and territory assignment logic. TRIGGER on:
+  designing or restructuring a territory hierarchy, configuring ATM assignment rules
+  (geographic, attribute, or combined), setting up Reference Data layers (ZIP codes,
+  counties, states, census tracts), troubleshooting territory assignments or coverage gaps,
+  planning rollup reporting across territory levels, or migrating from Enterprise Territory
+  Management (ETM) to Maps ATM. DO NOT TRIGGER for initial Maps installation or permissions
+  (sf-maps-setup) or day-to-day routing and visit planning (sf-maps-field).
+---
+
 # sf-maps-territory Skill
 
 This skill guides **Salesforce Maps territory design, Advanced Territory Management (ATM), coverage rules, reference data layers, and territory assignment logic**.
@@ -16,6 +31,20 @@ Do NOT trigger for:
 - Initial Maps installation or permission setup (use `sf-maps-setup`)
 - Day-to-day routing or visit planning (use `sf-maps-field`)
 - Generic Apex or Flow work unrelated to Maps territory logic (use upstream `sf-*` skills)
+
+---
+
+## Hard-Stop Rules
+
+If any of the following would be violated, stop and explain before proceeding:
+
+| Constraint | Rationale |
+|---|---|
+| Always design the hierarchy model before creating any territories | Changing hierarchy depth after records are assigned requires a full re-alignment batch job; get it right first |
+| Ask about overlap requirements before recommending Basic Territories | If any overlay rep scenario exists, Basic Territories cannot support it — ATM is required |
+| Never draw freehand polygon territories without a Reference Data boundary layer | Freehand polygons cannot be consistently maintained or re-assigned; Reference Data boundaries are the authoritative unit |
+| Do not exceed 5 hierarchy levels | Deeper nesting is a model design problem, not a configuration problem — more levels do not improve territory coverage |
+| Always run an assignment rule test on a sample set before applying to full org | Assignment rules execute in priority order; an incorrect priority sequence silently assigns records to the wrong territory |
 
 ---
 
@@ -137,4 +166,15 @@ AND SFMaps__GeocodingStatus__c = 'Geocoded'
 
 ---
 
-**License:** MIT | **Version:** 1.0.0
+## Delegate To
+
+| Need | Skill |
+|---|---|
+| Initial Maps installation, permission sets, or geocoding setup | `sf-maps-setup` |
+| Route optimization, check-ins, or daily visit planning | `sf-maps-field` |
+| ArcGIS layer consumption or batch push to ArcGIS Online/Enterprise | `sf-maps-arcgis` |
+| Apex trigger or class on a territory object | `generating-apex` (afv-library) |
+| Flow triggered by territory assignment changes | `generating-flow` (afv-library) |
+| Deploying territory config to production | `deploying-metadata` (afv-library) |
+
+---

@@ -29,6 +29,8 @@ Copy the skill folders into your agent's skill directory:
 cp -r skills/sf-maps-setup ~/.claude/skills/
 cp -r skills/sf-maps-territory ~/.claude/skills/
 cp -r skills/sf-maps-field ~/.claude/skills/
+cp -r skills/sf-maps-custom-actions ~/.claude/skills/
+cp -r skills/sf-maps-arcgis ~/.claude/skills/
 ```
 
 For the agent definition, copy separately:
@@ -44,6 +46,8 @@ cp agents/sf-maps-architect.md ~/.claude/agents/
 | `sf-maps-setup`          | Installation, permissions, geocoding, org config          |
 | `sf-maps-territory`      | Territory design, ATM, coverage rules, assignment logic   |
 | `sf-maps-field`          | Routing, markers, layers, visit planning, mobile usage    |
+| `sf-maps-custom-actions` | Map It buttons, Popup Flow, multi-record custom actions   |
+| `sf-maps-arcgis`         | ArcGIS Living Atlas layers and ArcGIS Connectors / Batch Push |
 | `sf-maps-architect`      | Integrated architect agent for Maps projects              |
 
 ## Skill Trigger Philosophy
